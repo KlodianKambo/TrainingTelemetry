@@ -1,17 +1,30 @@
 package com.klodian.kambo.trainingtelemetry
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.klodian.kambo.domain.usecases.GetCurrentUserInstantEffortPercStreamUseCase
 import com.klodian.kambo.domain.usecases.GetInstantHrStreamUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.shareIn
 import javax.inject.Inject
 
 @HiltViewModel
 class HeartRateViewModel @Inject constructor(
-    private val getInstantHrStreamUseCase: GetInstantHrStreamUseCase
+    private val getInstantHrStreamUseCase: GetInstantHrStreamUseCase,
+    private val getCurrentUserInstantEffortPercStreamUseCase: GetCurrentUserInstantEffortPercStreamUseCase
 ) : ViewModel() {
 
-    fun getInstantHrUpdates(): Flow<Int> {
-        return getInstantHrStreamUseCase()
-    }
+    fun getInstantHrUpdates(): Flow<Int> = getInstantHrStreamUseCase().shareIn(
+        viewModelScope,
+        started = SharingStarted.WhileSubscribed()
+    )
+
+    suspend fun fetchCurrentUserInstantEffortPercUpdates() =
+        getCurrentUserInstantEffortPercStreamUseCase().shareIn(
+            viewModelScope,
+            started = SharingStarted.WhileSubscribed()
+        )
+
 }

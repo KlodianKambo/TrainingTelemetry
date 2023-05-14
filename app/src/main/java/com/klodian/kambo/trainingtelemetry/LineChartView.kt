@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 
 class LineChartView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
@@ -72,7 +71,6 @@ class LineChartView(context: Context, attrs: AttributeSet) : View(context, attrs
                 val prevY = chartBottom - (yValues[i-1] - yMin) * yScale
                 canvas?.drawLine(prevX, prevY, x, y, linePaint)
                 canvas?.drawPoint(x, y, linePaint)
-                println("(!) print in $x $y")
             }
         }
     }

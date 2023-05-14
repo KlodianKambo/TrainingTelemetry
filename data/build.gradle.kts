@@ -36,6 +36,7 @@ android {
 dependencies {
 
     implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":enterprise")))
 
     implementation("javax.inject:javax.inject:1")
     implementation("androidx.core:core-ktx:1.9.0")

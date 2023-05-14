@@ -38,6 +38,12 @@ class HeartRateFragment : Fragment() {
                 binding.lineChartView.addValue(heartRate.toFloat())
             }
         }
+
+        lifecycleScope.launch {
+            viewModel.fetchCurrentUserInstantEffortPercUpdates().collect {
+                binding.instantEffortTextview.text = it?.let { "Instant Effort perc = " + String.format("%.2f", it) + " %" } ?: ""
+            }
+        }
     }
 
     override fun onDestroyView() {
