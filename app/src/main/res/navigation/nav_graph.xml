@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/heartRateFragment">
+
+    <fragment android:id="@+id/heartRateFragment"
+        android:name="com.klodian.kambo.trainingtelemetry.HeartRateFragment"
+        android:label="HR"
+        tools:layout="@layout/heart_rate_chart_fragment">
+    </fragment>
+</navigation>
