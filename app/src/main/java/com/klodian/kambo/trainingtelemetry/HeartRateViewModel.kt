@@ -16,15 +16,8 @@ class HeartRateViewModel @Inject constructor(
     private val getCurrentUserInstantEffortPercStreamUseCase: GetCurrentUserInstantEffortPercStreamUseCase
 ) : ViewModel() {
 
-    fun getInstantHrUpdates(): Flow<Int> = getInstantHrStreamUseCase().shareIn(
-        viewModelScope,
-        started = SharingStarted.WhileSubscribed()
-    )
+    fun getInstantHrUpdates(): Flow<Int> = getInstantHrStreamUseCase()
 
-    suspend fun fetchCurrentUserInstantEffortPercUpdates() =
-        getCurrentUserInstantEffortPercStreamUseCase().shareIn(
-            viewModelScope,
-            started = SharingStarted.WhileSubscribed()
-        )
+    suspend fun fetchCurrentUserInstantEffortPercUpdates() = getCurrentUserInstantEffortPercStreamUseCase()
 
 }
