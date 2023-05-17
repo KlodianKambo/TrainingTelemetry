@@ -5,7 +5,7 @@
     app:startDestination="@id/heartRateFragment">
 
     <fragment android:id="@+id/heartRateFragment"
-        android:name="com.klodian.kambo.trainingtelemetry.HeartRateFragment"
+        android:name="com.klodian.kambo.ui.HeartRateFragment"
         android:label="HR"
         tools:layout="@layout/heart_rate_chart_fragment">
     </fragment>

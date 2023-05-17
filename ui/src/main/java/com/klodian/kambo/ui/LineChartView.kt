@@ -1,4 +1,4 @@
-package com.klodian.kambo.trainingtelemetry
+package com.klodian.kambo.ui
 
 import android.content.Context
 import android.graphics.Canvas

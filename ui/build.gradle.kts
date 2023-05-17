@@ -1,30 +1,28 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
-
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     kotlin("kapt")
 }
 
 android {
-    namespace = "com.klodian.kambo.trainingtelemetry"
+    namespace = "com.klodian.kambo.ui"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.klodian.kambo.trainingtelemetry"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -34,10 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+
+    viewBinding {
+        enable =  true
+    }
 }
 
 dependencies {
-
     implementation("javax.inject:javax.inject:1")
     implementation("androidx.core:core-ktx:1.10.1")
 
@@ -46,9 +47,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation(project(mapOf("path" to ":domain")))
-    implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":enterprise")))
-    implementation(project(mapOf("path" to ":ui")))
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 

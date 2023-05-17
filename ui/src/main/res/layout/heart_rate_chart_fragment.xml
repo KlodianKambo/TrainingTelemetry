@@ -6,7 +6,7 @@
 
     <!-- Add any other views you need for your fragment layout here -->
 
-    <com.klodian.kambo.trainingtelemetry.LineChartView
+    <com.klodian.kambo.ui.LineChartView
         android:id="@+id/lineChartView"
         android:layout_width="match_parent"
         android:layout_height="300dp"

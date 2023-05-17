@@ -1,4 +1,4 @@
-package com.klodian.kambo.trainingtelemetry
+package com.klodian.kambo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.klodian.kambo.trainingtelemetry.databinding.HeartRateChartFragmentBinding
+import com.klodian.kambo.ui.databinding.HeartRateChartFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

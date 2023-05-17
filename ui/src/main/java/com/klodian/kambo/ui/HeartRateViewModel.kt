@@ -1,4 +1,4 @@
-package com.klodian.kambo.trainingtelemetry
+package com.klodian.kambo.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

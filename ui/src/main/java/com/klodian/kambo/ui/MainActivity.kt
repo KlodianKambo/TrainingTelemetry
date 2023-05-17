@@ -1,4 +1,4 @@
-package com.klodian.kambo.trainingtelemetry
+package com.klodian.kambo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
